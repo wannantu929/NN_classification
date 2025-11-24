@@ -37,17 +37,16 @@ def main():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Using {device} device")
     
-    cal_model = model.ClaModel().to(device)
+    cla_model = model.ClaModel().to(device)
     
     cross_loss = nn.CrossEntropyLoss()#他クラス分類
-    optimizer  = torch.optim.SGD(cal_model.parameters(), lr=1e-3) # 最適化アルゴリズム
+    optimizer  = torch.optim.SGD(cla_model.parameters(), lr=1e-3) # 最適化アルゴリズム
     
     epochs = 5
     for t in range(epochs):
         print(f"Epoch {t+1}\n-------------------------------")
-        train.train(train_dataloader, cal_model,cross_loss,optimizer,device)
-        train.test(test_dataloader, cal_model,cross_loss,device)
-    print("Done!")
+        train.train(train_dataloader, cla_model,cross_loss,optimizer,device)
+        train.test(test_dataloader, cla_model,cross_loss,device)
 
 if __name__ == "__main__":
     main()
