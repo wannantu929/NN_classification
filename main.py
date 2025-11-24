@@ -9,22 +9,18 @@ import train
 
 def main():
     
-    # ---------------------------------------------------------
-    # 1. データセットの準備 (Fashion-MNISTの分割)
-    # ---------------------------------------------------------
-
-    # 訓練データのダウンロードと読み込み (train=True)
+    # 訓練データのダウンロードと読み込み 
     training_data = datasets.FashionMNIST(
         root="data",
-        train=True,       # これが訓練用フラグ
+        train=True,       
         download=True,
-        transform=ToTensor(), # 画像をPyTorchのTensor形式(0-1の範囲)に変換
+        transform=ToTensor(), 
     )
 
-    # テストデータのダウンロードと読み込み (train=False)
+    # テストデータのダウンロードと読み込み 
     test_data = datasets.FashionMNIST(
         root="data",
-        train=False,      # これがテスト用フラグ
+        train=False,      
         download=True,
         transform=ToTensor(),
     )
